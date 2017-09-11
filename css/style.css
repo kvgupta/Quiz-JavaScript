@@ -1,0 +1,8 @@
+.main-content{
+  margin: 100px auto;
+  width: 800px;
+  border: 20px solid #6b2e0e;
+  height: 430px;
+  background-color: #137055;
+  box-shadow: inset 0px 0px 5px 5px;
+}
