@@ -1,18 +1,18 @@
-var jiffleApp = angular.module("jiffleApp", ['ngRoute']);
-jiffleApp.config(function($routeProvider, $locationProvider) {
+var myApp = angular.module("myApp", ['ngRoute']);
+myApp.config(function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
         templateUrl : 'partials/start.html',
-        controller  : 'jiffleController'
+        controller  : 'myController'
     }).when('/game', {
         templateUrl: 'partials/game.html',
-        controller  : 'jiffleController'
+        controller  : 'myController'
     }).when('/result', {
         templateUrl: 'partials/final.html',
-        controller  : 'jiffleController'
+        controller  : 'myController'
     });
     $locationProvider.html5Mode(true);
 });
-jiffleApp.service('quizService', function($http){
+myApp.service('quizService', function($http){
     this.fetchServiceData = function(callback){
         $http.get("https://cdn.rawgit.com/santosh-suresh/39e58e451d724574f3cb/raw/784d83b460d6c0150e338c34713f3a1c2371e20a/assignment.json")
         .then(function(data) {
@@ -26,7 +26,7 @@ jiffleApp.service('quizService', function($http){
         })
     };
 });
-jiffleApp.controller('jiffleController', function($scope, $http, quizService, $location, $rootScope) {
+myApp.controller('myController', function($scope, $http, quizService, $location, $rootScope) {
     
     $scope.allAnswer = [];
     $scope.next = function(){
