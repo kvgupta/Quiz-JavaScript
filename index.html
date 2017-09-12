@@ -5,27 +5,30 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="js/angular.min.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
   <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
 <body ng-controller="jiffleController" style="background: #0e0e0e;">
 	<div class="main-content">
-		<div class="panel panel-default">
-		    <div class="panel-heading">JavaScript Quiz {{currentQuestionIndex + 1}} of {{quizResponse.length}}</div>
-		    <div class="panel-body">
-		    	{{currentQuestion.text}}
-				<ul>
-					<li ng-repeat="data in currentQuestion.options">{{data}}</li>
-				</ul>
-		    </div>
-		    <div class="panel-footer">
-				<button ng-click="next()" ng-if="currentQuestionIndex < quizResponse.length-1">Next</button>
-				<button ng-click="Previous()" ng-if="currentQuestionIndex > 0">Previous</button>
-		    </div>
-		  </div>
+    	<h5 class="color-d8f0ee">JavaScript Quiz {{currentQuestionIndex + 1}} of {{quizResponse.length}}</h5>
+	    <div class="color-d8f0ee">
+	    	<p>{{currentQuestion.text}}</p>
+			<ol class="options">
+				<li ng-repeat="data in currentQuestion.options" type="A">{{data}}</li>
+			</ol>
+	    </div>
+	    <div class="buttons">
+			<button class="button" ng-click="submitAnswer(currentQuestion,'A')" ng-class="{'active': allAnswer[currentQuestionIndex].yourAnswer == 'A'}">A</button>
+			<button class="button" ng-click="submitAnswer(currentQuestion,'B')" ng-class="{'active': allAnswer[currentQuestionIndex].yourAnswer == 'B'}">B</button>
+			<button class="button" ng-click="submitAnswer(currentQuestion,'C')" ng-class="{'active': allAnswer[currentQuestionIndex].yourAnswer == 'C'}">C</button>
+			<button class="button" ng-click="submitAnswer(currentQuestion,'D')" ng-class="{'active': allAnswer[currentQuestionIndex].yourAnswer == 'D'}">D</button>
+	    </div>
+	    <div class="bottom-actions">
+			<button class="button btn-action" ng-click="Previous()" ng-if="(currentQuestionIndex > 0)">Previous</button>
+			<button class="button btn-action" ng-click="next()" ng-if="(currentQuestionIndex < quizResponse.length-1)" ng-disabled="!allAnswer[currentQuestionIndex].yourAnswer">Next</button>
+			<button class="button btn-action" ng-click="finalSubmit()" ng-if="(currentQuestionIndex >= quizResponse.length-1)" ng-disabled="!allAnswer[currentQuestionIndex].yourAnswer">Submit</button>
+	    </div>
 	</div>
 </body>
 </html>

@@ -4,5 +4,41 @@
   border: 20px solid #6b2e0e;
   height: 430px;
   background-color: #137055;
-  box-shadow: inset 0px 0px 5px 5px;
+  box-shadow: inset 0px 0px 5px 5px #3a3a3a;
+  padding: 10px 50px;
+}
+.main-content .buttons{
+  margin-top: 40px;
+  text-align: center;
+}
+.color-d8f0ee{
+  color: #d8f0ee;
+}
+.button{
+  background: #137055;
+  border: 2px solid #d8f0ee;
+  padding: 12px 16px;
+  color: #d8f0ee;
+  font-weight: bold;
+  font-size: 18px;
+  outline: none;
+}
+.bottom-actions{
+  margin-top: 20px;
+  display: flex;
+}
+.btn-action{
+  flex: 1;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+.errormsg{
+  text-align: center;
+  margin: 30px 0px;
+}
+.active{
+  border: 2px solid #bd4931;
+}
+.button:hover{
+  border: 2px solid #08ecd7;
 }

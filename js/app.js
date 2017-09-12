@@ -28,5 +28,32 @@ jiffleApp.controller('jiffleController', function($scope, $http, quizService) {
       $scope.currentQuestionIndex--;
       $scope.currentQuestion = $scope.quizResponse[$scope.currentQuestionIndex];
     }
+    $scope.allAnswer = []
+    $scope.submitAnswer = function(question, selectedAnswer){
+      $scope.allAnswer[$scope.currentQuestionIndex] = {
+        "correctAnswer" : question.answer,
+        "yourAnswer": selectedAnswer
+      };
+    }
+
+    $scope.score = 0;
+    $scope.finalSubmit = function(){
+      angular.forEach($scope.allAnswer,function(data){
+          switch(data.correctAnswer){
+            case 1 :  if(data.yourAnswer === "A")
+                        $scope.score++;
+                      break;
+            case 2 :  if(data.yourAnswer === "B")
+                        $scope.score++;
+                      break;
+            case 3 :  if(data.yourAnswer === "C")
+                        $scope.score++;
+                      break;
+            case 4 :  if(data.yourAnswer === "D")
+                        $scope.score++;
+                      break;
+          }
+      })
+    }
 });
 
