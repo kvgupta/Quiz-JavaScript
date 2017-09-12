@@ -1,0 +1,22 @@
+<h4 class="color-fff">JavaScript Quiz {{currentQuestionIndex + 1}} of {{quizResponse.length}}</h4>
+<div class="content">
+	<div class="color-fff">
+		<p>{{currentQuestion.text}}</p>
+		<ol class="options">
+			<li ng-repeat="data in currentQuestion.options" type="A">{{data}}</li>
+		</ol>
+	</div>
+	<div class="buttons">
+		<button class="button" ng-click="submitAnswer(currentQuestion,'A')" ng-class="{'active': allAnswer[currentQuestionIndex].yourAnswer == 'A'}">A</button>
+		<button class="button" ng-click="submitAnswer(currentQuestion,'B')" ng-class="{'active': allAnswer[currentQuestionIndex].yourAnswer == 'B'}">B</button>
+		<button class="button" ng-click="submitAnswer(currentQuestion,'C')" ng-class="{'active': allAnswer[currentQuestionIndex].yourAnswer == 'C'}">C</button>
+		<button class="button" ng-click="submitAnswer(currentQuestion,'D')" ng-class="{'active': allAnswer[currentQuestionIndex].yourAnswer == 'D'}">D</button>
+	</div>
+</div>
+<div class="bottom-actions">
+	<button class="button btn-action" ng-click="Previous()" ng-disabled="(currentQuestionIndex <= 0)">Previous</button>
+	<button class="button btn-action" ng-click="next()" ng-disabled="(currentQuestionIndex >= quizResponse.length-1)">Next</button>
+</div>
+<div class="bottom-actions">
+	<button class="button btn-action" ng-click="finalSubmit()" ng-if="(currentQuestionIndex >= quizResponse.length-1)">Submit</button>
+</div>
