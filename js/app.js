@@ -1,5 +1,5 @@
 var jiffleApp = angular.module("jiffleApp", ['ngRoute']);
-jiffleApp.config(function($routeProvider) {
+jiffleApp.config(function($routeProvider, $locationProvider) {
     $routeProvider.when('/', {
         templateUrl : 'partials/start.html',
         controller  : 'jiffleController'
@@ -10,6 +10,7 @@ jiffleApp.config(function($routeProvider) {
         templateUrl: 'partials/final.html',
         controller  : 'jiffleController'
     });
+    $locationProvider.html5Mode(true);
 });
 jiffleApp.service('quizService', function($http){
     this.fetchServiceData = function(callback){
